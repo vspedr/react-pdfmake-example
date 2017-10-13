@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import pdfMakePrototype from './PdfMakePrototype';
+import pdfMakeTable from './PdfMakeTable';
 import './App.css';
 
 class App extends Component {
+  _exportPdfTable = () => {
+    // change this number to generate more or less rows of data
+    pdfMakeTable(500);
+  }
+  
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">React + pdfmake</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Sample PDF report generator using React and pdfmake.
         </p>
         <p>
-          <button onClick={() => pdfMakePrototype()}>
-            Click me
+          <button onClick={this._exportPdfTable}>
+            Export PDF
           </button>
         </p>
       </div>
