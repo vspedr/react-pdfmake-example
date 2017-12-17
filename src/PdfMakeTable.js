@@ -20,20 +20,17 @@ export default (rows) => {
 
 	const data = fakeData(rows);
 	const formattedData = _format(data);
-	
+
   const documentDefinition = {
 		pageSize: 'A4',
 		pageOrientation: 'landscape',
 		content: [
-			{text: 'Header', style: 'subheader'},
-			'Some text here',
-			{text: ['More text here'], color: 'gray', italics: true},
+			{text: 'React + pdfmake example'},
+			'\n',
 			{
-				style: 'tableExample',
 				table: {
 					headerRows: 1,
 					dontBreakRows: true,
-					// keepWithHeaderRows: 1,
 					body: [
 						[{text: 'Name', style: 'tableHeader'}, {text: 'Username', style: 'tableHeader'}, {text: 'Email', style: 'tableHeader'}, {text: 'Phone', style: 'tableHeader'}, {text: 'Website', style: 'tableHeader'}],
 						...formattedData,
@@ -42,6 +39,6 @@ export default (rows) => {
 			}
 		]
   };
-	
+
 	pdfMake.createPdf(documentDefinition).open();
 }

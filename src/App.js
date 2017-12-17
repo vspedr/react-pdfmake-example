@@ -6,9 +6,9 @@ import './App.css';
 class App extends Component {
   _exportPdfTable = () => {
     // change this number to generate more or less rows of data
-    pdfMakeTable(500);
+    pdfMakeTable(20);
   }
-  
+
   render() {
     return (
       <div className="App">
